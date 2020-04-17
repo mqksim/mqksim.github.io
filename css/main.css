@@ -975,6 +975,9 @@ button.swiper-pagination-bullet {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
 
+html {
+  z-index: 999; }
+
 body {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
@@ -1696,7 +1699,6 @@ footer {
     .first-screen .first-screen__good {
       min-width: 200px; }
       .first-screen .first-screen__good img:nth-child(1) {
-        width: 300px;
         height: 250px; }
       .first-screen .first-screen__good img:nth-child(2) {
         width: 133px;
@@ -1706,8 +1708,8 @@ footer {
       .first-screen .first-screen__good img:nth-child(3) {
         width: 130px;
         height: 115px;
-        bottom: 75px;
-        right: 40px; }
+        bottom: 60px;
+        right: -70px; }
     .first-screen .first-screen__features {
       -ms-flex-order: -1;
           order: -1;
@@ -1889,7 +1891,6 @@ footer {
       margin-top: -50px;
       min-width: 0; }
       .first-screen .first-screen__good img:nth-child(1) {
-        width: 135px;
         height: 135px; }
       .first-screen .first-screen__good img:nth-child(2) {
         display: none; }
