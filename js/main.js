@@ -8725,9 +8725,10 @@ var catalogueSwiper = new Swiper('.catalogue-slider-container', {
         1600: {
             slidesPerView: 4,
             grabCursor: false,
+            spaceBetween: 25,
             allowTouchMove: false
         },
-        900: {
+        769: {
             slidesPerView: 3,
             spaceBetween: 25,
             grabCursor: true,
