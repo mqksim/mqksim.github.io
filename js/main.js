@@ -8691,19 +8691,6 @@
 
 })));
 //# sourceMappingURL=swiper.js.map
-//ANCHORS
-const anchors = document.querySelectorAll('a[href*="#"]');
-
-for(let anchor of anchors) {
-    anchor.addEventListener('click', function (event) {
-        event.preventDefault();
-        const blockID = anchor.getAttribute('href');
-        document.querySelector('' + blockID).scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        })
-    })
-}
 
 // Init SLIDERS
 
@@ -8748,6 +8735,21 @@ var catalogueSwiper = new Swiper('.catalogue-slider-container', {
         }
     }
 });
+
+
+//ANCHORS
+const anchors = document.querySelectorAll('a[href*="#"]');
+
+for(let anchor of anchors) {
+    anchor.addEventListener('click', function (event) {
+        event.preventDefault();
+        const blockID = anchor.getAttribute('href');
+        document.querySelector('' + blockID).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        })
+    })
+}
 
 // Timer
 
@@ -8803,19 +8805,33 @@ let popupCount = 0;
 let popup = document.querySelector('.popup-content');
 let popupBg = document.querySelector('.popup-bg');
 
-if(window.innerWidth > 1024) {
-    document.onmouseleave = function () {
-        if(!popupCount) {
-            popupBg.style.display = "block";
-            popupCount++;
-        }
-    };
-    document.getElementById('close-modal').addEventListener('click', function () {
-        popupBg.style.display = "none";
-    });
-    popupBg.addEventListener('click', function (event) {
-        if(event.target.classList.contains('popup-bg'))
-            popupBg.style.display = "none";
-    })
+//Костыльный вариант, работающий везде
+if (window.innerWidth > 1024) {
 
+    document.addEventListener("mousemove", function (e) {
+        if (e.clientY <= 20) {
+            if (!popupCount) {
+                popupBg.style.display = "block";
+                popupCount++;
+            }
+        }
+    });
 }
+
+document.getElementById('close-modal').addEventListener('click', function () {
+    popupBg.style.display = "none";
+});
+popupBg.addEventListener('click', function (event) {
+    if (event.target.classList.contains('popup-bg'))
+        popupBg.style.display = "none";
+});
+
+// Вариант идеально работающий только на Chrome
+// if(window.innerWidth > 1024) {
+//     document.onmouseout = function () {
+//         if(!popupCount) {
+//             popupBg.style.display = "block";
+//             popupCount++;
+//         }
+//     };
+// }
